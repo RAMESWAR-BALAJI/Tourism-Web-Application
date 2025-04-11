@@ -1,0 +1,122 @@
+<html>
+    <head>
+<style>
+  body{
+    background-image:linear-gradient(120deg,  rgb(86, 145, 255) , rgb(183, 183, 244));
+  }
+    .container{
+        padding-left: 50px;
+        height: 600px;
+        width: 500px;
+        border: 3px solid black;
+        background-image: url('https://res.cloudinary.com/twenty20/private_images/t_standard-fit/photosp/27369cf4-736f-47ee-aa24-7e7416d4c711/stock-photo-mockup-office-desk-business-advertise-montage-bokeh-wooden-room-display-tabletop-table-interior-blur-background-wood-white-empty-space-perspective-store-counter-abstract-blank-light-shelf-27369cf4-736f-47ee-aa24-7e7416d4c711.jpg' );
+       background-repeat: no-repeat;
+       background-size: cover;
+        padding-bottom: 80px; 
+ 
+    }
+   .hero{
+    border: 20px;
+    border-color:aquamarine ;
+   }
+   form{
+    text-align: left;
+   }
+   h1{
+    text-align: center;
+   }
+   label{
+    font-weight: bold;
+   }
+ .dead{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+    
+</style>
+    </head>
+    <body >
+      <center>
+        <div class="container" >
+          <div class="hero">
+            <form  action="submit.html" onsubmit="return validate()" style="border:3px;" >
+              <div>
+              <div class="dead"> <font face="verdana"> <h1 >!PAYMENT!</h1></div></div></font>
+                <div>
+                  <div class="dead">    <label>card holder name</label><br></div>
+                    <div class="dead">    <input type="text" id="user_name" style="width: 80%; height: 5%;" autocomplete="off"><br>
+                <b><span id="uname" style="color: red;"></span></b></div>
+                </div>
+                <br>
+               
+                        <div>
+                          <div class="dead">  <label>card_number</label><br></div>
+                            <div class="dead">   <input type="text" id="phoneno" style="width: 80%; height: 5%;" autocomplete="off" maxlength="16" ><br>
+                            <b><span id="phno" style="color: red;"></span></b></div>
+                            </div>
+                            <div>
+                                <br>
+                                <div class="dead">    <label>cvv</label><br></div>
+                                  <div class="dead">    <input type="password" id="email_id" style="width: 80%; height: 5%;" autocomplete="off" maxlength="3"  ><br>
+                                <b><span id="emailid" style="color: red;"></span></b></div>
+                                </div>
+                                <br>
+                              
+                                
+                                    <br>
+
+                                    <div class="dead">  <label>expire date </label><br></div>
+                                    <div class="dead">   <input type="date" id="date"  style="width: 80%; height: 5%;" autocomplete="off" required><br><br></div>
+                                    <img src="mc.png">
+                                
+                                    <div class="dead"> <a href="submit.html"> <input type="submit"  onkeypress="validate()" value="submit" style="width: 15%; height: 5%; background-color: green; "></a></div> 
+
+            </form>
+          </div>
+        </div>
+        </div>
+      </center>
+    </body>
+    <script>
+    function validate()
+    {
+    var username = document.getElementById('user_name').value;
+    var phone_number = document.getElementById('phoneno').value;
+    var email = document.getElementById('email_id').value;  
+
+    if(username == ""){
+				document.getElementById('uname').innerHTML =" * * Please fill the username field";
+				return false;
+			}
+    if ((username.length < 3) || (username.length > 20))
+    {
+        document.getElementById('uname').innerHTML = " * * username must be between 3 and 20 characters";
+        return false;
+    }
+    if(!isNaN(username)){
+				document.getElementById('uname').innerHTML =" * * only characters are allowed";
+				return false;
+			}
+          
+			
+            if(phone_number == ""){
+				document.getElementById('phno').innerHTML =" * * Please fill the card number field";
+				return false;
+			}
+            if (phone_number.length != 16)
+            {
+                document.getElementById('phno').innerHTML = " * * card number must be 16 digits";
+                return false;
+            }
+            if (isNaN(phone_number))
+            {
+                document.getElementById("phno").innerHTML = " * * card number must contain only digits";
+                return false;
+            }
+            if (isNaN(email))
+            {
+                document.getElementById("email_id").innerHTML = " * * cvv must contain only digits";
+                return false;
+            }
+    }
+    </script>
+</html>
